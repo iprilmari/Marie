@@ -118,6 +118,10 @@ print(celebrity_data)
 ```
 # b. Modify the power ranking and pay of J.K. Rowling. Change power ranking to 15 and pay to 90. Write the R scripts and its output.
 ```{r}
-power_ranking[which(celebrity_name =="J.K. Rowling")] <- 15
-pay[which(celebrity_name == "J.K Rowling")] <- 90
+power_ranking[19] <- 15 
+pay[19] <- 90
+celebrity_data <- data.frame(Celebrity = celebrity, Pay = pay, Power_ranking = power_ranking)
+print(celebrity_data)
+
+```
 
