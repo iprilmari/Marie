@@ -1762,6 +1762,113 @@ America, as compiled by the US Geological Survey”.</h1>
 </div>
 <div id="type-rivers-in-your-r-console." class="section level1">
 <h1>Type “rivers” in your R console.</h1>
+<pre class="r"><code>data &lt;- c(length(rivers), sum(rivers), mean(rivers), median(rivers), var(rivers), sd(rivers), min(rivers), max(rivers))
+print(data)</code></pre>
+<pre><code>## [1]    141.0000  83357.0000    591.1844    425.0000 243908.4086    493.8708
+## [7]    135.0000   3710.0000</code></pre>
+<ol start="8" style="list-style-type: decimal">
+<li>The table below gives the 25 most powerful celebrities and their
+annual pay as ranked by the editions of Forbes magazine and as listed on
+the Forbes.com website. # a. Create vectors according to the above
+table. Write the R scripts and its output.</li>
+</ol>
+<pre class="r"><code>celebrity &lt;- c(&quot;Tom Cruise&quot;, &quot;Rolling Stones&quot;, &quot;Oprah Winfrey&quot;, &quot;U2&quot;, &quot;Tiger Woods&quot;, &quot;Steven Spielberg&quot;, &quot;Howard Stern&quot;, &quot;50 Cent&quot;, &quot;Cast of the Sopranos&quot;, &quot;Dan Brown&quot;, &quot; Bruce Springsteen&quot;, &quot;Donald Trump&quot;, &quot;Muhammad Ali&quot;, &quot;Paul McCartney&quot;, &quot;George Lucas&quot;, &quot;Elton John&quot;, &quot;David Letterman&quot;, &quot;Phil Mickelson&quot;, &quot;J.K Rowling&quot;, &quot;Brad Pitt&quot;, &quot;Peter Jackson&quot;, &quot;Dr. Phil McGraw&quot;, &quot;Jay Lenon&quot;, &quot;Celine Dion&quot;, &quot;Kobe Bryant&quot;)
+pay &lt;- c(67, 90, 225, 110, 90, 332, 302, 41, 52, 88, 55, 44, 55, 40, 233, 34, 40, 47, 75, 25, 39, 45, 32, 40, 31)
+power_ranking &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25)
+celebrity_data &lt;- data.frame(Celebrity = celebrity, Pay = pay, Power_ranking = power_ranking)
+print(celebrity_data)</code></pre>
+<pre><code>##               Celebrity Pay Power_ranking
+## 1            Tom Cruise  67             1
+## 2        Rolling Stones  90             2
+## 3         Oprah Winfrey 225             3
+## 4                    U2 110             4
+## 5           Tiger Woods  90             5
+## 6      Steven Spielberg 332             6
+## 7          Howard Stern 302             7
+## 8               50 Cent  41             8
+## 9  Cast of the Sopranos  52             9
+## 10            Dan Brown  88            10
+## 11    Bruce Springsteen  55            11
+## 12         Donald Trump  44            12
+## 13         Muhammad Ali  55            13
+## 14       Paul McCartney  40            14
+## 15         George Lucas 233            15
+## 16           Elton John  34            16
+## 17      David Letterman  40            17
+## 18       Phil Mickelson  47            18
+## 19          J.K Rowling  75            19
+## 20            Brad Pitt  25            20
+## 21        Peter Jackson  39            21
+## 22      Dr. Phil McGraw  45            22
+## 23            Jay Lenon  32            23
+## 24          Celine Dion  40            24
+## 25          Kobe Bryant  31            25</code></pre>
+</div>
+<div id="b.-modify-the-power-ranking-and-pay-of-j.k.-rowling.-change-power-ranking-to-15-and-pay-to-90.-write-the-r-scripts-and-its-output." class="section level1">
+<h1>b. Modify the power ranking and pay of J.K. Rowling. Change power
+ranking to 15 and pay to 90. Write the R scripts and its output.</h1>
+<pre class="r"><code>power_ranking[19] &lt;- 15 
+pay[19] &lt;- 90
+celebrity_data &lt;- data.frame(Celebrity = celebrity, Pay = pay, Power_ranking = power_ranking)
+print(celebrity_data)</code></pre>
+<pre><code>##               Celebrity Pay Power_ranking
+## 1            Tom Cruise  67             1
+## 2        Rolling Stones  90             2
+## 3         Oprah Winfrey 225             3
+## 4                    U2 110             4
+## 5           Tiger Woods  90             5
+## 6      Steven Spielberg 332             6
+## 7          Howard Stern 302             7
+## 8               50 Cent  41             8
+## 9  Cast of the Sopranos  52             9
+## 10            Dan Brown  88            10
+## 11    Bruce Springsteen  55            11
+## 12         Donald Trump  44            12
+## 13         Muhammad Ali  55            13
+## 14       Paul McCartney  40            14
+## 15         George Lucas 233            15
+## 16           Elton John  34            16
+## 17      David Letterman  40            17
+## 18       Phil Mickelson  47            18
+## 19          J.K Rowling  90            15
+## 20            Brad Pitt  25            20
+## 21        Peter Jackson  39            21
+## 22      Dr. Phil McGraw  45            22
+## 23            Jay Lenon  32            23
+## 24          Celine Dion  40            24
+## 25          Kobe Bryant  31            25</code></pre>
+</div>
+<div id="c.-create-an-excel-file-from-the-table-above-and-save-it-as-csv-filepowerranking.-import-the-csv-file-into-the-rstudio.-what-is-the-r-script" class="section level1">
+<h1>c. Create an excel file from the table above and save it as csv
+file(PowerRanking). Import the csv file into the RStudio. What is the R
+script?</h1>
+<pre class="r"><code>write.csv(celebrity_data, file = &quot;PowerRanking.csv&quot;, row.names = FALSE)
+celebrity_data_imported &lt;- read.csv(&quot;PowerRanking.csv&quot;)
+celebrity_data_imported</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["Celebrity"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Pay"],"name":[2],"type":["int"],"align":["right"]},{"label":["Power_ranking"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"Tom Cruise","2":"67","3":"1"},{"1":"Rolling Stones","2":"90","3":"2"},{"1":"Oprah Winfrey","2":"225","3":"3"},{"1":"U2","2":"110","3":"4"},{"1":"Tiger Woods","2":"90","3":"5"},{"1":"Steven Spielberg","2":"332","3":"6"},{"1":"Howard Stern","2":"302","3":"7"},{"1":"50 Cent","2":"41","3":"8"},{"1":"Cast of the Sopranos","2":"52","3":"9"},{"1":"Dan Brown","2":"88","3":"10"},{"1":"Bruce Springsteen","2":"55","3":"11"},{"1":"Donald Trump","2":"44","3":"12"},{"1":"Muhammad Ali","2":"55","3":"13"},{"1":"Paul McCartney","2":"40","3":"14"},{"1":"George Lucas","2":"233","3":"15"},{"1":"Elton John","2":"34","3":"16"},{"1":"David Letterman","2":"40","3":"17"},{"1":"Phil Mickelson","2":"47","3":"18"},{"1":"J.K Rowling","2":"90","3":"15"},{"1":"Brad Pitt","2":"25","3":"20"},{"1":"Peter Jackson","2":"39","3":"21"},{"1":"Dr. Phil McGraw","2":"45","3":"22"},{"1":"Jay Lenon","2":"32","3":"23"},{"1":"Celine Dion","2":"40","3":"24"},{"1":"Kobe Bryant","2":"31","3":"25"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div id="d.-access-the-rows-10-to-20-and-save-it-as-ranks.rdata.-write-the-r-script-and-its-output." class="section level1">
+<h1>d. Access the rows 10 to 20 and save it as Ranks.RData. Write the R
+script and its output.</h1>
+<pre class="r"><code>ranks &lt;- celebrity_data[10:20,]
+save(ranks, file = &quot;Ranks.RData&quot;)
+print(ranks)</code></pre>
+<pre><code>##             Celebrity Pay Power_ranking
+## 10          Dan Brown  88            10
+## 11  Bruce Springsteen  55            11
+## 12       Donald Trump  44            12
+## 13       Muhammad Ali  55            13
+## 14     Paul McCartney  40            14
+## 15       George Lucas 233            15
+## 16         Elton John  34            16
+## 17    David Letterman  40            17
+## 18     Phil Mickelson  47            18
+## 19        J.K Rowling  90            15
+## 20          Brad Pitt  25            20</code></pre>
 </div>
 
 
