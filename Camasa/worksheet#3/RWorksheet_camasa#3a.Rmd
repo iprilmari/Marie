@@ -1,5 +1,5 @@
 ---
-title: "RWorksheet_camasa#3a"
+title: "RWorksheet_camasa#3"
 author: "April Marie"
 date: "2024-10-02"
 output: pdf_document
@@ -8,6 +8,7 @@ output: pdf_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
 # Using VECTORS
 # 1.
 # a. You need to produce a vector that contains the first 11 letters.
@@ -83,7 +84,7 @@ matr
 # b. Multiply the matrix by two. What is its R code and its result?
 ```{r}
 multiply <- matr * 2
-multiply           
+multiply
 ```
 # c. What is the content of row 2? What is its R code?
 ```{r}
