@@ -83,7 +83,7 @@ matr
 # b. Multiply the matrix by two. What is its R code and its result?
 ```{r}
 multiply <- matr * 2
-multiply
+multiply           
 ```
 # c. What is the content of row 2? What is its R code?
 ```{r}
