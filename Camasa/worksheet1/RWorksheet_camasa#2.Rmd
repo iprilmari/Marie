@@ -48,7 +48,7 @@ second_fourth <- ages[c(2, 4)]
 print(second_fourth)
 ```
 # c. Access all but the 4th and 12th element is not included. Write the R script and its output.
-```{r}
+```{r}  
 age <- ages[-c(4, 12)]
 print(age)
 ```
@@ -103,25 +103,5 @@ print(average_expenditure)
 ```{r}
 data <- c(length(rivers), sum(rivers), mean(rivers), median(rivers), var(rivers), sd(rivers), min(rivers), max(rivers))
 print(data)
-```
-
-# 8. The table below gives the 25 most powerful celebrities and their annual pay as ranked by the editions of Forbes magazine and as listed on the Forbes.com website.
-# a. Create vectors according to the above table. Write the R scripts and its output.
-```{r}
-names <- c("Tom Cruise", "Rolling Stones", "Oprah Winfrey", "U2", "Tiger Woods", "Steven Spielberg", "Howard Stern", "50 Cent", "Cast of the Sopranos", "Dan Brown", "Bruce Springsteen", "Donald Trump", "Muhammad Ali", "Paul McCartney", "George Lucas", "Elton John", "David Letterman", "Phil Mickelson", "J.K Rowling", "Bradd Pitt", "Peter Jackson", "Dr. Phil McGraw", "Jay Lenon", "Celine Dion", "Kobe Bryant")
-power_ranking <- 1:25
-pay <- c(67, 90, 225, 110, 90, 332, 302, 41, 52, 88,
-                55, 44, 55, 40, 233, 34, 40, 47, 75, 25,
-                39, 45, 32, 40, 31)
-celebrity_data <- data.frame(names, power_ranking, pay)
-print(celebrity_data)
-```
-# b. Modify the power ranking and pay of J.K. Rowling. Change power ranking to 15 and pay to 90. Write the R scripts and its output.
-```{r}
-power_ranking[19] <- 15 
-pay[19] <- 90
-celebrity_data <- data.frame(Celebrity = celebrity, Pay = pay, Power_ranking = power_ranking)
-print(celebrity_data)
-
 ```
 
