@@ -1,0 +1,105 @@
+---
+title: "RWorksheet_camasa#4b"
+author: "April Marie"
+date: "2024-10-30"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# 1. Using the for loop, create an R script that will display a 5x5 matrix as shown in Figure 1. It must contain vectorA = [1,2,3,4,5] and a 5 x 5 zero matrix.
+```{r}
+vectorA <- c(1, 2, 3, 4, 5)
+
+zmat <- matrix(0, nrow = 5, ncol = 5)
+rmat <- zmat
+
+for (i in 1:5) {
+  for (j in 1:5) {
+    rmat[i, j] <- abs(vectorA[i] - zmat[i, j])
+  }
+}
+print(rmat)
+```
+
+# 2. Print the string "*" using for() function.
+```{r}
+a <- 5
+
+for (i in 1:a) {
+  r_output <- paste(rep("*", i), collapse = " ")
+  cat(r_output, "\n")
+}
+```
+
+# 3. Get an input from the user to print the Fibonacci sequence starting from the 1st input up to 500. Use repeat and break statements.
+```{r eval=FALSE}
+start <- as.numeric(readline(prompt = "Enter a number: "))
+
+x <- 0
+y <- 1
+
+cat("Fibonacci sequence starting from", start, "up to 500:\n")
+
+repeat {
+  fib_seq <- x + y
+ 
+  if (fib_seq > 500) {
+    break  
+  }
+ 
+  if (fib_seq >= start) {
+    cat(fib_seq, "\n")
+  }
+ 
+  x <- y
+  y <- fib_seq
+}
+```
+
+# 4. Import the dataset as shown in Figure 1 you have created previously.
+# a. What is the R script for importing an excel or a csv file? Display the first 6 rows of the dataset?
+```{r}
+data <- read.csv("shoe_sizes.csv")
+
+head(data)
+```
+
+# b. Create a subset for gender(female and male). How many observations are there in Male? How about in Female?
+```{r}
+fdata <- subset(data, Gender == "F")
+mdata <- subset(data, Gender == "M")
+
+num_female <- nrow(fdata)
+num_male <- nrow(mdata)
+
+num_female
+num_male
+```
+
+# c. 
+```{r}
+gender_count <- table(data$Gender)
+barplot(gender_count,
+        main = "Number of Males and Females in Household Data",
+        col = c("blue", "purple"),
+        legend = rownames(gender_count),
+        ylab = "Count",
+        xlab = "Gender",
+        beside = TRUE)
+```
+
+# 5. 
+```{r}
+expenses <- c(60, 10, 5, 25)
+labels <- c("Food", "Electricity", "Savings", "Miscellaneous")
+colors <- c("skyblue", "lightgreen", "beige", "violet")
+
+pie(expenses,
+    labels = paste(labels, "\n", round((expenses / sum(expenses)) * 100, 1), "%", sep = ""),
+    col = colors,
+    main = "Monthly Income Distribution of Dela Cruz Family")
+
+```
