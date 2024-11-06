@@ -1,0 +1,25 @@
+---
+title: "RWorksheet#5_group(Cabia, Camasa, Noblezada)"
+author: "Cabia, Camasa, Noblezada"
+date: "2024-11-06"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(polite)
+library(kableExtra)
+library(rmarkdown)
+
+url <- 'https://www.imdb.com/'
+
+session <- bow(url,
+               user_agent = "Educational")
+session
+
+rank_title <- character(0)
+links <- character(0)
+```
