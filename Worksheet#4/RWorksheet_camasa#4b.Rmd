@@ -81,11 +81,11 @@ num_male
 
 # c. 
 ```{r}
-gender_count <- table(data$Gender)
-barplot(gender_count,
+genderCount <- table(data$Gender)
+barplot(genderCount,
         main = "Number of Males and Females in Household Data",
         col = c("blue", "purple"),
-        legend = rownames(gender_count),
+        legend = rownames(genderCount),
         ylab = "Count",
         xlab = "Gender",
         beside = TRUE)
@@ -93,13 +93,64 @@ barplot(gender_count,
 
 # 5. 
 ```{r}
-expenses <- c(60, 10, 5, 25)
+exp <- c(60, 10, 5, 25)
 labels <- c("Food", "Electricity", "Savings", "Miscellaneous")
 colors <- c("skyblue", "lightgreen", "beige", "violet")
 
-pie(expenses,
-    labels = paste(labels, "\n", round((expenses / sum(expenses)) * 100, 1), "%", sep = ""),
+pie(exp,
+    labels = paste(labels, "\n", round((exp / sum(exp)) * 100, 1), "%", sep = ""),
     col = colors,
     main = "Monthly Income Distribution of Dela Cruz Family")
 
+```
+# 6.
+```{r}
+# a.
+data(iris)
+
+str(iris)
+
+# b.
+meanValues <- colMeans(iris[, 1:4])
+
+print(meanValues)
+
+# c.
+speciesCounts <- table(iris$Species)
+
+colors <- c("lightblue", "lightyellow", "lightgreen")
+
+pie(speciesCounts,
+    labels = paste(names(speciesCounts), "\n", speciesCounts, sep = ""),
+    col = colors,
+    main = "Species Distribution in Iris Dataset")
+
+# d.
+setosaSubset <- iris[iris$Species == "setosa", ]
+versicolorSubset <- iris[iris$Species == "versicolor", ]
+virginicaSubset <- iris[iris$Species == "virginica", ]
+
+setosaLastSix <- tail(setosaSubset, 6)
+versicolorLastSix <- tail(versicolorSubset, 6)
+virginicaLastSix <- tail(virginicaSubset, 6)
+
+print("Last six rows of Setosa:")
+print(setosaLastSix)
+print("Last six rows of Versicolor:")
+print(versicolorLastSix)
+print("Last six rows of Virginica:")
+print(virginicaLastSix)
+
+# e.
+iris$Species <- as.factor(iris$Species)
+
+plot(iris$Sepal.Length, iris$Sepal.Width,
+     col = iris$Species,
+     pch = 19,
+     main = "Iris Dataset",
+     sub = "Sepal Width and Length",
+     xlab = "Sepal Length",
+     ylab = "Sepal Width")
+
+legend("topright", legend = levels(iris$Species), col = 1:3, pch = 19)
 ```
