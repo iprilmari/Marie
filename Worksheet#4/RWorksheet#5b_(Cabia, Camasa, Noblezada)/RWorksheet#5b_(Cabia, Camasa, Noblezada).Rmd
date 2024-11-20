@@ -1,0 +1,22 @@
+---
+title: "WORKSHEET"
+author: "Cabia, Camasa, Noblezada"
+date: "2024-11-20"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r}
+library(rvest)
+library(httr)
+library(dplyr)
+
+url <- "https://www.amazon.com/s?k=top+10+books+for+2024&i=todays-deals&crid=2RG08M0BF1T8S&sprefix=top+10%2Ctodays-deals%2C401&ref=nb_sb_ss_ts-doa-p_1_6"
+webpage <- read.html(url)
+
+name <- webpage %>% html_nodes(".a-color-base.a-text-normal") %>% html.text()
+
+date <- webpage %>% html_nodes(".a-color-secondary.a-text-normal") %>% html.text()
+```
